@@ -1,19 +1,24 @@
 import { Component } from '@angular/core';
 import { UserModel } from './model/user-model';
 import { AddressModel } from './model/address-model';
+import { UserService } from './services/user.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [
+    UserService
+  ]
 })
 export class AppComponent {
   title = 'app';
+  newUser: UserModel = new UserModel();
   user: UserModel;
   address: AddressModel;
   animalName = '';
 
-  constructor(){
+  constructor(private _userService: UserService){
     this.user = new UserModel('',0,new Array<AddressModel>());
     this.address = new AddressModel('',0,'');
   }
@@ -30,6 +35,31 @@ export class AppComponent {
   incluirEndereco2(){
     this.user.adresses.push(this.address);
     this.address = new AddressModel('',0,'');
+  }
+
+  salvarUsuario(){
+    this._userService.createUser(this.newUser).then(user => {
+      this.user = user;
+      console.log(user);
+    }).catch(e => {
+      console.log(e);
+    });
+  }
+
+  addAddress(){
+    this._userService.addAddress(this.address).then(address =>{
+      console.log(address);
+    }).catch(e => {
+      console.log(e);
+    });
+  }
+
+  deleteAddress(){
+    this._userService.deleteAddress(this.address).then(address =>{
+      console.log("excluido");
+    }).catch(e => {
+      console.log(e);
+    });
   }
 
 

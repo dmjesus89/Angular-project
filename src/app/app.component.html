@@ -1,56 +1,51 @@
-<!--The content below is only a placeholder and can be replaced.-->
+
 <div style="text-align:center">
   <h1>
     Welcome to {{ title }}!
 
     <br/>
-    
-
-   
-
-
-    Meu nome e: {{ user.name }}  <br/>
-    Minha idade e: {{ user.age }} <br/>
-    <div *ngIf="user.adresses  && user.adresses.length > 0" class="meuendereco">
-      Enderecos: <br/>
-      <div *ngFor="let adress of user.adresses">
-
-      
-          Meu endereco e: Rua {{ adress.street }} numero {{ adress.number }} em {{ adress.state }} <br/> <br/>
-   
-    </div>
-      Nome do animal e: {{ animalName }} <br/>
-
-   </div>
-
-
-  <div>
-
-  </div>
-
-
-    <button (click)="update(nome.value, idade.value, animal.value)">Alterar</button> 
-
-    
   </h1>
-  <button (click)="showAlert()">
-    Click
-  </button>
 </div>
 
+<!--
 <form action="">
     Nome: <input type="text" [(ngModel)]="user.name" name="username" id="username">  User Name: {{ user.name }} <br/>
     Idade: <input type="text" [(ngModel)]="user.age" name="age" id="age"> Idade {{ user.age }} <br/>
+</form>
+-->
+<form action="">
+<div *ngIf="user && user.name == '' ">
 
+    Nome: <input type="text" [(ngModel)]="newUser.name" name="newUsername" id="newUsername">  User Name: {{ newUser.name }} <br/>
+    Idade: <input type="text" [(ngModel)]="newUser.age" name="newAge" id="newAge"> Idade {{ newUser.age }} <br/>
+    <button (click)="salvarUsuario()">Salvar Usuario</button>
+    <button (click)="showAlert()">Click</button>
+    <button (click)="update(nome.value, idade.value, animal.value)">Alterar</button> 
+    <button (click)="incluirEndereco2()">Incluir Endereco</button>
+
+</div>
+
+
+
+<div *ngIf="user && user.name != '' ">
+
+    Meu nome e: {{ user.name }}  <br/>
+    Minha idade e: {{ user.age }} <br/>
     <div id="endereco">
         Rua Endereco: <input type="text" [(ngModel)]="address.street" name="street" id="street">  Rua: {{ address.street }} <br/>
         Numero Endereco: <input type="text" [(ngModel)]="address.number" name="number" id="number">  Numero: {{ address.number }} <br/>
         Estado Endereco: <input type="text" [(ngModel)]="address.state" name="state" id="state">  Estado: {{ address.state }} <br/>
+        <button (click)="addAddress()">Incluir Endereco</button>
+    </div>
+    <div *ngIf="user.adresses  && user.adresses.length > 0" class="meuendereco">
+      Enderecos: <br/>
+      <div *ngFor="let adress of user.adresses; let i = index">
+          Meu endereco e: Rua {{ adress.street }} numero {{ adress.number }} em {{ adress.state }} <br/> <br/>
+      </div>
+    </div>
     </div>
 
-    <button (click)="incluirEndereco2()">Incluir Endereco</button>
-
-</form>
+  </form>
 
 
 
