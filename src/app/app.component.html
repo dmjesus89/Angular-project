@@ -4,9 +4,7 @@
     Welcome to {{ title }}!
 
     <br/>
-    Nome: <input type="text"  #nome ><br/>
-    Idade: <input type="text"  #idade ><br/>
-    Animal: <input type="text" #animal ><br/>
+    
 
    
 
@@ -18,22 +16,18 @@
       <div *ngFor="let adress of user.adresses">
 
       
-      Meu endereco e: Rua {{ adress.street }} numero {{ adress.number }} em {{ adress.state }} <br/> <br/>
+          Meu endereco e: Rua {{ adress.street }} numero {{ adress.number }} em {{ adress.state }} <br/> <br/>
    
     </div>
       Nome do animal e: {{ animalName }} <br/>
 
    </div>
 
-   <div id="endereco">
-      Rua Endereco: <input type="text"  #enderecoRua ><br/>
-      Numero Endereco: <input type="text"  #enderecoNumero ><br/>
-      Estado Endereco: <input type="text"  #enderecoUF ><br/>
-  </div>
+
   <div>
 
   </div>
-  <button (click)="incluirEndereco(enderecoRua.value, enderecoNumero.value, enderecoUF.value)">Incluir Endereco</button>
+
 
     <button (click)="update(nome.value, idade.value, animal.value)">Alterar</button> 
 
@@ -43,6 +37,20 @@
     Click
   </button>
 </div>
+
+<form action="">
+    Nome: <input type="text" [(ngModel)]="user.name" name="username" id="username">  User Name: {{ user.name }} <br/>
+    Idade: <input type="text" [(ngModel)]="user.age" name="age" id="age"> Idade {{ user.age }} <br/>
+
+    <div id="endereco">
+        Rua Endereco: <input type="text" [(ngModel)]="address.street" name="street" id="street">  Rua: {{ address.street }} <br/>
+        Numero Endereco: <input type="text" [(ngModel)]="address.number" name="number" id="number">  Numero: {{ address.number }} <br/>
+        Estado Endereco: <input type="text" [(ngModel)]="address.state" name="state" id="state">  Estado: {{ address.state }} <br/>
+    </div>
+
+    <button (click)="incluirEndereco2()">Incluir Endereco</button>
+
+</form>
 
 
 

@@ -10,19 +10,26 @@ import { AddressModel } from './model/address-model';
 export class AppComponent {
   title = 'app';
   user: UserModel;
+  address: AddressModel;
   animalName = '';
 
   constructor(){
     this.user = new UserModel('',0,new Array<AddressModel>());
+    this.address = new AddressModel('',0,'');
   }
 
   showAlert(){
     alert('Fui clicado');
   }
 
-  incluirEndereco(enderecoRua: string,enderecoNumero: number,enderecoUF: string,){
+  incluirEndereco(enderecoRua: string,enderecoNumero: number,enderecoUF: string){
     const address = new AddressModel(enderecoRua,enderecoNumero,enderecoUF);
     this.user.adresses.push(address);
+  }
+
+  incluirEndereco2(){
+    this.user.adresses.push(this.address);
+    this.address = new AddressModel('',0,'');
   }
 
 
