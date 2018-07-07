@@ -1,0 +1,16 @@
+import { AddressModel } from "./address-model";
+
+export class UserModel {
+
+    name: string;
+    age: number;
+    adresses: Array<AddressModel>;
+
+    constructor(name:string, age:number, adresses: Array<AddressModel>){
+        this.name = name;
+        this.age = age;
+        this.adresses = adresses;
+    }
+
+}
+
