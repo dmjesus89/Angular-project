@@ -1,0 +1,22 @@
+
+  
+    Meu nome é: {{ user.name }}  <br/>
+    Minha idade é: {{ user.age }} <br/>
+    <div id="endereco">
+        Rua Endereco: <input type="text" [(ngModel)]="address.street" name="street" id="street">  Rua: {{ address.street }} <br/>
+        Número Endereço: <input type="text" [(ngModel)]="address.number" name="number" id="number">  Numero: {{ address.number }} <br/>
+        Estado Endereco: <input type="text" [(ngModel)]="address.state" name="state" id="state"> Estado: {{ address.state }} <br/>
+        <button (click)="addAddress()">Incluir Endereco</button>
+    </div>
+    
+  
+    <div *ngIf="user.adresses  && user.adresses.length > 0" class="meuendereco">
+      Enderecos: <br/>
+      <div *ngFor="let adress of user.adresses; let i = index">
+          Meu endereco e: Rua {{ adress.street }} numero {{ adress.number }} em {{ adress.state }} <br/> <br/>
+      </div>
+    </div>
+
+    <!-- <button (click)="update(nome.value, idade.value, animal.value)">Alterar</button> 
+    <button (click)="incluirEndereco()">Incluir Endereco</button> -->
+  

@@ -1,0 +1,53 @@
+
+<div style="text-align:center">
+  <h1>
+    Lista de Usuários
+
+    <br/>
+  </h1>
+</div>
+
+<div style="text-align:center">
+<a [routerLink]="['create']">
+    Novo Usuario
+</a>
+</div>
+
+Lista 1
+<div *ngFor="let user of users">
+    Meu nome é: {{ user.name }}  
+    Minha idade é: {{ user.age }} 
+    <a [routerLink]="['edit', user.id]">Edit</a>
+    <a [routerLink]="['delete']">      Delete </a> 
+</div>
+
+Lista 2
+<div *ngFor="let user of usersExample2">
+    Meu nome é: {{ user.name }}  
+    Minha idade é: {{ user.age }} 
+    <a [routerLink]="['edit', user.id]">Edit</a>
+    <a [routerLink]="['delete']">      Delete </a> 
+</div>
+
+Lista 3
+<div *ngFor="let user of usersExample3 | async">
+    Meu nome é: {{ user.name }}  
+    Minha idade é: {{ user.age }} 
+    <a [routerLink]="['edit', user.id]">Edit</a>
+    <a [routerLink]="['delete']">      Delete </a> 
+</div>
+
+Lista 4
+<div *ngFor="let user of usersExample4 ">
+    Meu nome é: {{ user.name }}  
+    Minha idade é: {{ user.age }} 
+    <a [routerLink]="['edit', user.id]">Edit</a>
+    <a [routerLink]="['delete']">      Delete </a> 
+
+</div>
+
+
+
+
+
+

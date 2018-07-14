@@ -3,7 +3,7 @@ export class AddressModel {
     number:number;
     state:string;
 
-    constructor(_street: string, _number: number, _state: string){
+    constructor(_street?: string, _number?: number, _state?: string){
         this.street = _street;
         this.number = _number;
         this.state = _state;

@@ -1,0 +1,12 @@
+
+
+<form action="">
+  
+  
+      Nome: <input type="text" [(ngModel)]="user.name" name="newUsername" id="newUsername">  <br/>
+      Idade: <input type="text" [(ngModel)]="user.age" name="newAge" id="newAge"> <br/>
+    
+      <a [routerLink]="['/']" ><button (click)="createUser()">Salvar Usuario</button> </a>
+  
+    </form>
+  
